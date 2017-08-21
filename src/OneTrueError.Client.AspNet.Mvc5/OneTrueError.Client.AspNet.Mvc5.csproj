@@ -1,0 +1,40 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net451</TargetFramework>
+    <PackageId>OneTrueError.Client.AspNet.Mvc5</PackageId>
+    <Authors>1TCompany AB</Authors>
+    <Description>Automates exception handling for ASP.NET MVC5 applications</Description>
+    <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
+    <PackageReleaseNotes>Converted to vstudio 2017 csproj format</PackageReleaseNotes>
+    <Copyright>© Copyright 2017 1TCompany AB. All rights reserved.</Copyright>
+    <PackageTags>logger exceptions analysis asp.net mvc5</PackageTags>
+    <PackageIconUrl>http://onetrueerror.com/images/nuget_icon.png</PackageIconUrl>
+    <RepositoryUrl>https://github.com/onetrueerror/onetrueerror.client.aspnet.mvc5</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageLicenseUrl>https://github.com/onetrueerror/onetrueerror.client.aspnet.mvc5/LICENSE</PackageLicenseUrl>
+    <PackageProjectUrl>https://onetrueerror.com</PackageProjectUrl>
+    <Version>1.0.4.0</Version>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DocumentationFile>bin\Debug\net451\OneTrueError.Client.AspNet.Mvc5.xml</DocumentationFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNet.Mvc" Version="5.0.0" />
+    <PackageReference Include="Microsoft.AspNet.Razor" Version="3.0.0" />
+    <PackageReference Include="Microsoft.AspNet.WebPages" Version="3.0.0" />
+    <PackageReference Include="Microsoft.Web.Infrastructure" Version="1.0.0.0" />
+    <PackageReference Include="Newtonsoft.Json" Version="9.0.1" />
+    <PackageReference Include="OneTrueError.Client" Version="1.0.3" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="README.txt">
+      <Pack>true</Pack>
+      <PackagePath>README.txt</PackagePath>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Web" />
+  </ItemGroup>
+</Project>
