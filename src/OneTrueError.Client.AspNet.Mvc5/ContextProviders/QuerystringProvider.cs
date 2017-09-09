@@ -1,4 +1,4 @@
-﻿using System.Web;
+﻿    using System.Web;
 using OneTrueError.Client.ContextProviders;
 using OneTrueError.Client.Contracts;
 using OneTrueError.Client.Reporters;
@@ -18,7 +18,10 @@ namespace OneTrueError.Client.AspNet.Mvc5.ContextProviders
         /// <returns>Collection</returns>
         public ContextCollectionDTO Collect(IErrorReporterContext context)
         {
-            return new ContextCollectionDTO("HttpQueryString", HttpContext.Current.Request.QueryString);
+            var aspNetContext = context as AspNetContext;
+            if (aspNetContext==null)
+                return null;
+            return new ContextCollectionDTO("HttpQueryString", aspNetContext.HttpContext.Request.QueryString);
         }
 
         /// <summary>

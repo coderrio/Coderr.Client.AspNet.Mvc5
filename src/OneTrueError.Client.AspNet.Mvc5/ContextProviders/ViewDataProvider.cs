@@ -14,7 +14,7 @@ namespace OneTrueError.Client.AspNet.Mvc5.ContextProviders
         public ContextCollectionDTO Collect(IErrorReporterContext context)
         {
             var aspNetContext = context as AspNetMvcContext;
-            if (aspNetContext == null || aspNetContext.ViewData == null || aspNetContext.ViewData.Count == 0)
+            if (aspNetContext?.ViewData == null || aspNetContext.ViewData.Count == 0)
                 return null;
 
             var di = new Dictionary<string, string>();
@@ -30,10 +30,7 @@ namespace OneTrueError.Client.AspNet.Mvc5.ContextProviders
             return new ContextCollectionDTO(Name, di);
         }
 
-        /// <inheritdoc />
-        public string Name
-        {
-            get { return "ViewData"; }
-        }
+        /// <summary>ViewData</summary>
+        public string Name => "ViewData";
     }
 }

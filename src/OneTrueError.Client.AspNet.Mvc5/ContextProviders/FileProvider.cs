@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using System.Web;
 using OneTrueError.Client.ContextProviders;
 using OneTrueError.Client.Contracts;
 using OneTrueError.Client.Reporters;
@@ -21,12 +20,12 @@ namespace OneTrueError.Client.AspNet.Mvc5.ContextProviders
         /// <returns>Collection. Items with multiple values are joined using <c>";;"</c></returns>
         public ContextCollectionDTO Collect(IErrorReporterContext context)
         {
-            var aspContext = (context) as AspNetContext;
+            var aspContext = context as AspNetContext;
             if (aspContext == null || aspContext.HttpContext.Request.Files.Count == 0)
                 return null;
 
             var files = new Dictionary<string, string>();
-            for (int i = 0; i < aspContext.HttpContext.Request.Files.Count; i++)
+            for (var i = 0; i < aspContext.HttpContext.Request.Files.Count; i++)
             {
                 var file = aspContext.HttpContext.Request.Files.Get(i);
                 files[file.FileName] = string.Format(file.ContentType + ";length=" + file.ContentLength);

@@ -1,5 +1,4 @@
-﻿using System.Web;
-using OneTrueError.Client.ContextProviders;
+﻿using OneTrueError.Client.ContextProviders;
 using OneTrueError.Client.Contracts;
 using OneTrueError.Client.Reporters;
 
@@ -18,15 +17,16 @@ namespace OneTrueError.Client.AspNet.Mvc5.ContextProviders
         /// <returns>Collection</returns>
         public ContextCollectionDTO Collect(IErrorReporterContext context)
         {
-            return new ContextCollectionDTO("HttpForm", HttpContext.Current.Request.Form);
+            var aspContext = context as AspNetContext;
+            if (aspContext == null || aspContext.HttpContext.Request.Files.Count == 0)
+                return null;
+
+            return new ContextCollectionDTO("HttpForm", aspContext.HttpContext.Request.Form);
         }
 
         /// <summary>
         ///     "HttpForm"
         /// </summary>
-        public string Name
-        {
-            get { return "HttpForm"; }
-        }
+        public string Name => "HttpForm";
     }
 }

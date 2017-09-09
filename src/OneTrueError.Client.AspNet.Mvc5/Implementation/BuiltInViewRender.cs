@@ -32,10 +32,10 @@ namespace OneTrueError.Client.AspNet.Mvc5.Implementation
         /// <returns>Complete string</returns>
         public static void Render(HttpErrorReporterContext context)
         {
-            var url =
-                new Uri(string.Format("{0}://{1}{2}", HttpContext.Current.Request.Url.Scheme,
-                    HttpContext.Current.Request.Url.Authority,
-                    HttpContext.Current.Request.Url.AbsolutePath));
+            var url = new Uri(string.Format("{0}://{1}{2}",
+                context.HttpContext.Request.Url?.Scheme ?? "https",
+                context.HttpContext.Request.Url.Authority,
+                context.HttpContext.Request.Url.AbsolutePath));
 
             var virtualPathOrCompleteErrorPageHtml = LoadDefaultErrorPage(context.HttpStatusCodeName);
             var sb = new StringBuilder();
@@ -59,7 +59,7 @@ namespace OneTrueError.Client.AspNet.Mvc5.Implementation
                 {
                     executeMethod.Invoke(pageObj, new object[0]);
                 }
-                var page = (Page) pageObj;
+                var page = (Page)pageObj;
                 page.ProcessRequest(httpContext);
             }
             else if (virtualPathOrCompleteErrorPageHtml.EndsWith(".html"))

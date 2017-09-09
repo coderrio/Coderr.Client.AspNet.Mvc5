@@ -21,10 +21,7 @@ namespace OneTrueError.Client.AspNet.Mvc5.ContextProviders
             return converter.Convert(Name, aspNetContext.ViewBag);
         }
 
-        /// <inheritdoc />
-        public string Name
-        {
-            get { return "ViewBag"; }
-        }
+        /// <summary>ViewBag</summary>
+        public string Name => "ViewBag";
     }
 }

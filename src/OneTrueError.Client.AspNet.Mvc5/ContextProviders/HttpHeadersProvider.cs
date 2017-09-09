@@ -17,15 +17,19 @@ namespace OneTrueError.Client.AspNet.Mvc5.ContextProviders
         /// <returns>Collection. Items with multiple values are joined using <c>";;"</c></returns>
         public ContextCollectionDTO Collect(IErrorReporterContext context)
         {
-            var myHeaders = new NameValueCollection(HttpContext.Current.Request.Headers);
-            myHeaders["Url"] = HttpContext.Current.Request.Url.ToString();
+            var aspNetContext = context as AspNetContext;
+            if (aspNetContext?.HttpContext == null)
+                return null;
+
+            var myHeaders =
+                new NameValueCollection(aspNetContext.HttpContext.Request.Headers)
+                {
+                    ["Url"] = aspNetContext.HttpContext.Request.Url?.ToString()
+                };
             return new ContextCollectionDTO("HttpHeaders", myHeaders);
         }
 
         /// <summary>"HttpHeaders"</summary>
-        public string Name
-        {
-            get { return "HttpHeaders"; }
-        }
+        public string Name => "HttpHeaders";
     }
 }

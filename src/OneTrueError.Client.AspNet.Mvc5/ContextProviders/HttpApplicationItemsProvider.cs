@@ -14,20 +14,19 @@ namespace OneTrueError.Client.AspNet.Mvc5.ContextProviders
         public ContextCollectionDTO Collect(IErrorReporterContext context)
         {
             var aspNetContext = context as AspNetContext;
-            if (aspNetContext == null || aspNetContext.HttpContext == null)
+            if (aspNetContext?.HttpContext == null)
                 return null;
 
-            if (aspNetContext.HttpContext.Application == null || aspNetContext.HttpContext.Application.Count == 0)
+            if (aspNetContext.HttpContext.Application.Count == 0)
                 return null;
 
             var converter = new ObjectToContextCollectionConverter();
             return converter.Convert(Name, aspNetContext.HttpContext.Application);
         }
 
-        /// <inheritdoc />
-        public string Name
-        {
-            get { return "HttpContext.Application"; }
-        }
+        /// <summary>
+        /// "HttpContext.Application"
+        /// </summary>
+        public string Name => "HttpContext.Application";
     }
 }

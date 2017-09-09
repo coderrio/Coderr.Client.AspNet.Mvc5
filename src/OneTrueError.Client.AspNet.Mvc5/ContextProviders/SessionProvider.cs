@@ -23,16 +23,23 @@ namespace OneTrueError.Client.AspNet.Mvc5.ContextProviders
         /// <returns>Collection</returns>
         public ContextCollectionDTO Collect(IErrorReporterContext context)
         {
-            if (HttpContext.Current.Session == null)
+            var aspNetContext = context as AspNetContext;
+            if (aspNetContext?.HttpContext.Session == null)
                 return new ContextCollectionDTO("HttpSession", new NameValueCollection());
 
             var items = new NameValueCollection();
-            foreach (string key in HttpContext.Current.Session)
+            foreach (string key in aspNetContext.HttpContext.Session)
             {
-                var item = HttpContext.Current.Session[key];
-                if (item is string)
+                var item = aspNetContext.HttpContext.Session[key];
+                if (item == null)
                 {
-                    items.Add(key, (string) item);
+                    items.Add(key, "null");
+                    continue;
+                }
+
+                if (item is string || item.GetType().IsPrimitive)
+                {
+                    items.Add(key, item.ToString());
                 }
                 else
                 {
@@ -47,9 +54,6 @@ namespace OneTrueError.Client.AspNet.Mvc5.ContextProviders
         /// <summary>
         ///     "HttpSession"
         /// </summary>
-        public string Name
-        {
-            get { return "HttpSession"; }
-        }
+        public string Name => "HttpSession";
     }
 }
