@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using System.Web.Mvc;
 using OneTrueError.Client.ContextProviders;
 using OneTrueError.Client.Contracts;
 using OneTrueError.Client.Reporters;
@@ -9,6 +8,12 @@ namespace OneTrueError.Client.AspNet.Mvc5.ContextProviders
     /// <summary>
     ///     Name: "ModelState"
     /// </summary>
+    /// <remarks>
+    ///     <para>
+    ///         Each property have a key named <c>"[PropertyName].RawValue"</c> and <c>"[PropertyName].AttemptedValue"</c>. If
+    ///         there are errors, another property named "[PropertyName].Error" will be added (one for each error)
+    ///     </para>
+    /// </remarks>
     public class ModelStateProvider : IContextInfoProvider
     {
         /// <inheritdoc />
@@ -19,13 +24,15 @@ namespace OneTrueError.Client.AspNet.Mvc5.ContextProviders
                 return null;
 
             var dict = new Dictionary<string, string>();
-            foreach (var kvp in (IDictionary<string, ModelState>) aspNetContext.ModelState)
+            foreach (var kvp in aspNetContext.ModelState)
             {
                 if (kvp.Value == null)
+                {
+                    dict[kvp.Key + ".RawValue"] = "null";
                     continue;
+                }
 
                 var state = kvp.Value;
-
                 if (state.Value != null)
                 {
                     if (state.Value.RawValue != null)

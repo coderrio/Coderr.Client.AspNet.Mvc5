@@ -19,8 +19,9 @@ namespace OneTrueError.Client.AspNet.Mvc5.ContextProviders
         public ContextCollectionDTO Collect(IErrorReporterContext context)
         {
             var aspNetContext = context as AspNetContext;
-            if (aspNetContext==null)
+            if (aspNetContext == null || aspNetContext.HttpContext.Request.QueryString.Count == 0)
                 return null;
+
             return new ContextCollectionDTO("HttpQueryString", aspNetContext.HttpContext.Request.QueryString);
         }
 

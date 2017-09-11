@@ -18,7 +18,7 @@ namespace OneTrueError.Client.AspNet.Mvc5.ContextProviders
         public ContextCollectionDTO Collect(IErrorReporterContext context)
         {
             var aspContext = context as AspNetContext;
-            if (aspContext == null || aspContext.HttpContext.Request.Files.Count == 0)
+            if (aspContext == null || aspContext.HttpContext.Request.Form.Count == 0)
                 return null;
 
             return new ContextCollectionDTO("HttpForm", aspContext.HttpContext.Request.Form);

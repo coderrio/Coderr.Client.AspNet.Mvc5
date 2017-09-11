@@ -14,11 +14,14 @@ namespace OneTrueError.Client.AspNet.Mvc5.ContextProviders
         public ContextCollectionDTO Collect(IErrorReporterContext context)
         {
             var aspNetContext = context as AspNetMvcContext;
-            if (aspNetContext == null || aspNetContext.ViewBag == null)
+            if (aspNetContext?.ViewBag == null)
                 return null;
 
             var converter = new ObjectToContextCollectionConverter();
-            return converter.Convert(Name, aspNetContext.ViewBag);
+            var collection = converter.Convert(Name, aspNetContext.ViewBag);
+
+            //not beatiful, but we do not want to reflect the object twice
+            return collection.Properties.Count == 0 ? null : collection;
         }
 
         /// <summary>ViewBag</summary>

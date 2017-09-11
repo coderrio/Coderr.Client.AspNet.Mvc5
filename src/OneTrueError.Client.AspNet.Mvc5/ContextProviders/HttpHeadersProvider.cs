@@ -1,5 +1,4 @@
 ﻿using System.Collections.Specialized;
-using System.Web;
 using OneTrueError.Client.ContextProviders;
 using OneTrueError.Client.Contracts;
 using OneTrueError.Client.Reporters;
@@ -21,11 +20,13 @@ namespace OneTrueError.Client.AspNet.Mvc5.ContextProviders
             if (aspNetContext?.HttpContext == null)
                 return null;
 
-            var myHeaders =
-                new NameValueCollection(aspNetContext.HttpContext.Request.Headers)
-                {
-                    ["Url"] = aspNetContext.HttpContext.Request.Url?.ToString()
-                };
+            var myHeaders = new NameValueCollection(aspNetContext.HttpContext.Request.Headers);
+            if (aspNetContext.HttpContext.Request.Url != null)
+                myHeaders["Url"] = aspNetContext.HttpContext.Request.Url.ToString();
+
+            if (myHeaders.Count == 0)
+                return null;
+
             return new ContextCollectionDTO("HttpHeaders", myHeaders);
         }
 

@@ -1,4 +1,5 @@
-﻿using OneTrueError.Client.ContextProviders;
+﻿using System.Collections.Generic;
+using OneTrueError.Client.ContextProviders;
 using OneTrueError.Client.Contracts;
 using OneTrueError.Client.Converters;
 using OneTrueError.Client.Reporters;
@@ -20,8 +21,14 @@ namespace OneTrueError.Client.AspNet.Mvc5.ContextProviders
             if (aspNetContext.HttpContext.Application.Count == 0)
                 return null;
 
-            var converter = new ObjectToContextCollectionConverter();
-            return converter.Convert(Name, aspNetContext.HttpContext.Application);
+            var dict = new Dictionary<string,string>();
+            for (var i = 0; i < aspNetContext.HttpContext.Application.Count; i++)
+            {
+                var value = aspNetContext.HttpContext.Application[i];
+                var key = aspNetContext.HttpContext.Application.GetKey(i);
+                dict[key] = value?.ToString() ?? "null";
+            }
+            return new ContextCollectionDTO(Name, dict);
         }
 
         /// <summary>

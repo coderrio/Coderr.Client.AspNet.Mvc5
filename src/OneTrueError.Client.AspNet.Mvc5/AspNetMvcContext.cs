@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
@@ -43,7 +44,7 @@ namespace OneTrueError.Client.AspNet.Mvc5
         ///         collected when using <c>OneTrue.Report</c> instead of <c>controller.ReportException</c>.
         ///     </para>
         /// </remarks>
-        public ModelStateDictionary ModelState { get; set; }
+        public IDictionary<string, ModelState> ModelState { get; set; }
 
         /// <summary>
         ///     RouteData if any

@@ -69,7 +69,7 @@ namespace OneTrueError.Client.AspNet.Mvc5.Handlers
         {
             DynamicModuleUtility.RegisterModule(typeof(ErrorHttpModule));
         }
-
+        
         /// <summary>
         ///     Do the OneTrueError collection pipeline.
         /// </summary>
@@ -86,16 +86,21 @@ namespace OneTrueError.Client.AspNet.Mvc5.Handlers
                 return null;
             }
 
-            HttpApplication application = null;
-            var module = context.Reporter as ErrorHttpModule;
-            if (module != null && module.Application != null)
+            if (context.HttpApplication == null)
             {
-                application = module.Application;
+                var module = context.Reporter as ErrorHttpModule;
+                if (module?.Application != null)
+                {
+                    context.HttpApplication = module.Application;
+                }
+            }
+            if (context.HttpApplication != null)
+            {
                 if (DisplayErrorPage)
-                    module.Application.Response.Clear();
+                    context.HttpApplication.Response.Clear();
             }
 
-            var httpCodeIdentifier = new HttpCodeIdentifier(application, context.Exception);
+            var httpCodeIdentifier = new HttpCodeIdentifier(context.HttpApplication, context.Exception);
             var report = OneTrue.GenerateReport(context);
             if (contextCollections.Any())
             {
@@ -144,6 +149,7 @@ namespace OneTrueError.Client.AspNet.Mvc5.Handlers
             handler.Execute(ctx);
             return report;
         }
+
         /// <summary>
         ///     Do the OneTrueError collection pipeline.
         /// </summary>

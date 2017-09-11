@@ -26,6 +26,11 @@ namespace OneTrueError.Client.AspNet.Mvc5
         }
 
         /// <summary>
+        /// The ASP.NET application 
+        /// </summary>
+        public HttpApplication HttpApplication { get; set; }
+
+        /// <summary>
         /// Http context for the request that the exception occurred for.
         /// </summary>
         public HttpContextBase HttpContext { get; private set; }

@@ -8,7 +8,7 @@ namespace OneTrueError.Client.AspNet.Mvc5.ContextProviders
     /// <summary>
     ///     "RouteData"
     /// </summary>
-    internal class RouteDataProvider : IContextInfoProvider
+    public class RouteDataProvider : IContextInfoProvider
     {
         /// <inheritdoc />
         public ContextCollectionDTO Collect(IErrorReporterContext context)
@@ -19,9 +19,9 @@ namespace OneTrueError.Client.AspNet.Mvc5.ContextProviders
 
             var dict = new Dictionary<string, string>();
             foreach (var token in aspNetContext.RouteData.DataTokens)
-                dict.Add("DataToken[\"" + token.Key + "\"]", token.Value.ToString());
+                dict.Add($"DataToken[\"{token.Key}\"]", token.Value.ToString());
             foreach (var token in aspNetContext.RouteData.Values)
-                dict.Add("Values[\"" + token.Key + "\"]", token.Value.ToString());
+                dict.Add($"Values[\"{token.Key}\"]", token.Value.ToString());
 
             return new ContextCollectionDTO(Name, dict);
         }

@@ -25,7 +25,7 @@ namespace OneTrueError.Client.AspNet.Mvc5.ContextProviders
         {
             var aspNetContext = context as AspNetContext;
             if (aspNetContext?.HttpContext.Session == null)
-                return new ContextCollectionDTO("HttpSession", new NameValueCollection());
+                return null;
 
             var items = new NameValueCollection();
             foreach (string key in aspNetContext.HttpContext.Session)
@@ -47,6 +47,8 @@ namespace OneTrueError.Client.AspNet.Mvc5.ContextProviders
                     items.Add(key, json);
                 }
             }
+            if (items.Count == 0)
+                return null;
 
             return new ContextCollectionDTO("HttpSession", items);
         }

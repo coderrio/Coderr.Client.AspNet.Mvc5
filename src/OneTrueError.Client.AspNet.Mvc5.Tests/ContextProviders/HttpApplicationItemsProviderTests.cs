@@ -3,56 +3,50 @@ using System.Web;
 using FluentAssertions;
 using NSubstitute;
 using OneTrueError.Client.AspNet.Mvc5.ContextProviders;
+using OneTrueError.Client.AspNet.Mvc5.Tests.ContextProviders.Stubs;
 using OneTrueError.Client.Reporters;
 using Xunit;
 
 namespace OneTrueError.Client.AspNet.Mvc5.Tests.ContextProviders
 {
-    public class FileProviderTests
+    public class HttpApplicationItemsProviderTests
     {
         [Fact]
         public void should_ignore_incorrect_OneTrueErrorContext()
         {
             var context = new ErrorReporterContext(this, new Exception());
 
-            var sut = new FileProvider();
-            var result = sut.Collect(context);
-
-            result.Should().BeNull();
-
-        }
-
-        [Fact]
-        public void should_not_return_an_empty_collection_when_the_File_collection_is_empty()
-        {
-            var httpContext = Substitute.For<HttpContextBase>();
-            var context = new AspNetContext(this, new Exception(), httpContext);
-
-            var sut = new FileProvider();
+            var sut = new HttpApplicationItemsProvider();
             var result = sut.Collect(context);
 
             result.Should().BeNull();
         }
 
         [Fact]
-        public void should_collect_files_that_are_included_in_the_Request()
+        public void should_include_form_items()
         {
             var httpContext = Substitute.For<HttpContextBase>();
-            var files = Substitute.For<HttpFileCollectionBase>();
-            var file = Substitute.For<HttpPostedFileBase>();
-            file.FileName.Returns("my.file");
-            file.ContentType.Returns("application/octet-stream");
-            file.ContentLength.Returns(100);
-            files.Count.Returns(1);
-            files.Get(0).Returns(file);
-            httpContext.Request.Files.Returns(files);
             var context = new AspNetContext(this, new Exception(), httpContext);
+            var state = new TestApplicationState {["Ada"] = "Bada"};
+            httpContext.Application.Returns(state);
 
-            var sut = new FileProvider();
+            var sut = new HttpApplicationItemsProvider();
             var result = sut.Collect(context);
 
-            result.Name.Should().Be("HttpRequestFiles");
-            result.Properties["my.file"].Should().Be("application/octet-stream;length=100");
+            result.Property("Ada").Should().Be("Bada");
+        }
+
+        [Fact]
+        public void should_not_return_an_empty_collection_when_the_application_collection_is_empty()
+        {
+            var httpContext = Substitute.For<HttpContextBase>();
+            var context = new AspNetContext(this, new Exception(), httpContext);
+            context.HttpContext.Application.Returns(new TestApplicationState());
+
+            var sut = new HttpApplicationItemsProvider();
+            var result = sut.Collect(context);
+
+            result.Should().BeNull();
         }
     }
 }

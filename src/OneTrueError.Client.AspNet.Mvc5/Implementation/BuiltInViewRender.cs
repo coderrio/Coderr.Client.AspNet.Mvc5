@@ -32,8 +32,11 @@ namespace OneTrueError.Client.AspNet.Mvc5.Implementation
         /// <returns>Complete string</returns>
         public static void Render(HttpErrorReporterContext context)
         {
+            if (context.HttpContext.Request.Url == null)
+                return;
+
             var url = new Uri(string.Format("{0}://{1}{2}",
-                context.HttpContext.Request.Url?.Scheme ?? "https",
+                context.HttpContext.Request.Url.Scheme ?? "https",
                 context.HttpContext.Request.Url.Authority,
                 context.HttpContext.Request.Url.AbsolutePath));
 
