@@ -1,31 +1,34 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <TargetFramework>net451</TargetFramework>
+    <Version>1.0.5</Version>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <RootNamespace>codeRR.Client.AspNet.Mvc5</RootNamespace>
+    <DocumentationFile>bin\$(Configuration)\$(TargetFramework)\Coderr.Client.AspNet.Mvc5.xml</DocumentationFile>
+  </PropertyGroup>
+  
+  <PropertyGroup>
     <PackageId>Coderr.Client.AspNet.Mvc5</PackageId>
     <Authors>1TCompany AB</Authors>
     <Description>Automates exception handling for ASP.NET MVC v5 applications</Description>
     <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
-    <PackageReleaseNotes>Converted to vstudio 2017 csproj format</PackageReleaseNotes>
-    <Copyright>© Copyright 2017 1TCompany AB. All rights reserved.</Copyright>
+    <PackageReleaseNotes>Updated information</PackageReleaseNotes>
+    <Copyright>Copyright 2017 © 1TCompany AB. All rights reserved.</Copyright>
     <PackageTags>logger exceptions analysis asp.net mvc5</PackageTags>
-    <PackageIconUrl>http://onetrueerror.com/images/nuget_icon.png</PackageIconUrl>
-    <RepositoryUrl>https://github.com/onetrueerror/onetrueerror.client.aspnet.mvc5</RepositoryUrl>
+    <PackageIconUrl>https://coderrapp.com/images/nuget_icon.png</PackageIconUrl>
+    <RepositoryUrl>https://github.com/coderrapp/coderr.client.aspnet.mvc5</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
-    <PackageLicenseUrl>https://github.com/onetrueerror/onetrueerror.client.aspnet.mvc5/LICENSE</PackageLicenseUrl>
-    <PackageProjectUrl>https://onetrueerror.com</PackageProjectUrl>
-    <Version>1.0.4.0</Version>
-    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <RootNamespace>codeRR.Client.AspNet.Mvc5</RootNamespace>
+    <PackageLicenseUrl>https://raw.githubusercontent.com/coderrapp/codeRR.Client.AspNet.Mvc5/master/LICENSE</PackageLicenseUrl>
+    <PackageProjectUrl>https://coderrapp.com</PackageProjectUrl>
   </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-    <DocumentationFile>bin\Debug\net451\OneTrueError.Client.AspNet.Mvc5.xml</DocumentationFile>
-  </PropertyGroup>
+  
   <ItemGroup>
-    <None Remove="Views\Error.html" />
-    <None Remove="Views\Forbidden.html" />
-    <None Remove="Views\NotFound.html" />
-    <None Remove="Views\Unauthorized.html" />
+    <Content Include="README.txt">
+      <Pack>true</Pack>
+      <PackagePath>README.txt</PackagePath>
+    </Content>
   </ItemGroup>
+ 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNet.Mvc" Version="5.2.3" />
     <PackageReference Include="Microsoft.AspNet.Razor" Version="3.2.3" />
@@ -34,10 +37,15 @@
     <PackageReference Include="Coderr.Client" Version="1.0.6" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="README.txt">
-      <Pack>true</Pack>
-      <PackagePath>README.txt</PackagePath>
-    </Content>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Web" />
+  </ItemGroup>
+  
+  <ItemGroup>
+    <None Remove="Views\Error.html" />
+    <None Remove="Views\Forbidden.html" />
+    <None Remove="Views\NotFound.html" />
+    <None Remove="Views\Unauthorized.html" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Views\Error.html" />
@@ -45,8 +53,5 @@
     <EmbeddedResource Include="Views\NotFound.html" />
     <EmbeddedResource Include="Views\Unauthorized.html" />
   </ItemGroup>
-  <ItemGroup>
-    <Reference Include="Microsoft.CSharp" />
-    <Reference Include="System.Web" />
-  </ItemGroup>
+
 </Project>
