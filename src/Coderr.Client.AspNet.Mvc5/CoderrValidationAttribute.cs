@@ -6,12 +6,12 @@ namespace codeRR.Client.AspNet.Mvc5
     /// <summary>
     ///     Validates model when it arrives and adds exceptions as validation failures.
     /// </summary>
-    public class ValidationAttribute : ActionFilterAttribute
+    public class CoderrValidationAttribute : ActionFilterAttribute
     {
         /// <summary>
-        ///     Creates a new instance of <see cref="ValidationAttribute" />.
+        ///     Creates a new instance of <see cref="CoderrValidationAttribute" />.
         /// </summary>
-        public ValidationAttribute()
+        public CoderrValidationAttribute()
         {
             DisplayExceptionAsValidationFailure = true;
         }
