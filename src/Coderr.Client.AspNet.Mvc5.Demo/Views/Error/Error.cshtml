@@ -1,0 +1,20 @@
+﻿@model codeRR.Client.AspNet.Mvc5.CoderrViewModel
+
+<h1>Error</h1>
+<img src="@Url.Content("~/Content/oops.png")" />
+
+<div>
+    <h3>Reason</h3>
+    <p>
+        @Model.Exception.Message
+    </p>
+</div>
+<div>
+    <h3>What did you do?!</h3>
+    <form method="post" action="/coderr/submit">
+        @Html.HiddenFor(x => x.ReportId)
+        @Html.TextAreaFor(x => x.UserErrorDescription, new { rows = 5, cols = 20, @class = "form-control", placeholder = "What did you do?!" })
+        <br />
+        <button class="btn btn-primary">Send error report</button>
+    </form>
+</div>

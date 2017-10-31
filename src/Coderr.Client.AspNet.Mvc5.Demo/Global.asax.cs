@@ -12,11 +12,11 @@ namespace codeRR.Client.AspNet.Mvc5.Demo
             // replace with URI for your own account/coderrServer.
             var uri = new Uri("http://localhost:50473/");
             Err.Configuration.Credentials(uri,
-                "5f219f356daa40b3b31dfc67514df6d6",
-                "22612e4444f347d1bb3d841d64c9750a");
+                "2b42024bcb21499daed400e13b6338f3",
+                "237e6bb0345f45b281a35c5b8a8e5bdb");
 
 
-            Err.Configuration.UserInteraction.AskUserForDetails = true;
+            Err.Configuration.UserInteraction.AskUserForDetails = false;
             Err.Configuration.UserInteraction.AskForEmailAddress = true;
             Err.Configuration.CatchMvcExceptions();
             Err.Configuration.DisplayErrorPages();

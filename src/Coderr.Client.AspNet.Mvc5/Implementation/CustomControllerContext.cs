@@ -66,9 +66,9 @@ namespace codeRR.Client.AspNet.Mvc5.Implementation
             if (NoUserController)
                 return false;
 
-            var model = new OneTrueViewModel
+            var model = new CoderrViewModel
             {
-                ErrorId = _errorId,
+                ReportId = _errorId,
                 Exception = _exception,
                 HttpStatusCode = HttpCode,
                 HttpStatusCodeName = HttpCodeName
@@ -113,9 +113,9 @@ namespace codeRR.Client.AspNet.Mvc5.Implementation
             var controller = new CoderrController();
             var requestContext = new RequestContext(httpContext, _routeData);
 
-            var model = new OneTrueViewModel
+            var model = new CoderrViewModel
             {
-                ErrorId = _errorId,
+                ReportId = _errorId,
                 Exception = _exception,
                 HttpStatusCode = HttpCode,
                 HttpStatusCodeName = HttpCodeName
@@ -137,7 +137,7 @@ namespace codeRR.Client.AspNet.Mvc5.Implementation
             {
                 ViewName = viewName,
                 MasterName = null,
-                ViewData = new ViewDataDictionary<OneTrueViewModel>(model)
+                ViewData = new ViewDataDictionary<CoderrViewModel>(model)
             };
             try
             {
@@ -153,10 +153,10 @@ namespace codeRR.Client.AspNet.Mvc5.Implementation
 </head>
 <body>
 <h1>Configuration error</h1>
-<p>The default ASP.NET MVC error view <code>Shared\Error.cshtml</code> uses <code>HandleErrorInfo</code> as a view model while codeRR expects <code>OneTrueViewModel</code>.</p>
+<p>The default ASP.NET MVC error view <code>Shared\Error.cshtml</code> uses <code>HandleErrorInfo</code> as a view model while codeRR expects <code>CoderrViewModel</code>.</p>
 <p>You have three options:</p>
 <ol>
-<li>Change view model in it: <code>@model codeRR.Client.AspNet.Mvc5.OneTrueViewModel</code></li>
+<li>Change view model in it: <code>@model codeRR.Client.AspNet.Mvc5.CoderrViewModel</code></li>
 <li>Remove the view <code>Shared\Errors.cshtml</code> to get codeRRs built in error pages.</li>
 <li>Disable codeRRs error page handling, remove <code>Err.Configuration.DisplayErrorPages();</code> from global.asax.</li>
 </ol>

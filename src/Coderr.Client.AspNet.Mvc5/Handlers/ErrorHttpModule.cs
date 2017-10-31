@@ -7,6 +7,7 @@ using codeRR.Client.AspNet.Mvc5.Handlers;
 using codeRR.Client.AspNet.Mvc5.Implementation;
 using Microsoft.Web.Infrastructure.DynamicModuleHelper;
 using codeRR.Client;
+using codeRR.Client.ContextCollections;
 using codeRR.Client.Contracts;
 using codeRR.Client.Uploaders;
 
@@ -86,6 +87,9 @@ namespace codeRR.Client.AspNet.Mvc5.Handlers
                 context.HttpContext.Response.Redirect("~/");
                 return null;
             }
+            if (context.HttpContext.Items.Contains("CoderrReported"))
+                return null;
+            context.HttpContext.Items.Add("CoderrReported", "true");
 
             if (context.HttpApplication == null)
             {
@@ -187,7 +191,8 @@ namespace codeRR.Client.AspNet.Mvc5.Handlers
 
             if (Err.Configuration.UserInteraction.AskUserForPermission)
             {
-                if (httpContext.Request.Form["Allowed"] != "true")
+                var value = httpContext.Request.Form[nameof(CoderrViewModel.UserAllowedReporting)]?.ToLower();
+                if (httpContext.Request.Form["Allowed"] != "true" && value != "true")
                     return;
 
                 // report have been sent in the previous HTTP post for other cases.
@@ -197,16 +202,11 @@ namespace codeRR.Client.AspNet.Mvc5.Handlers
             }
 
 
-            var description = httpContext.Request.Form["Description"];
-            var email = httpContext.Request.Form["Email"];
+            var description = httpContext.Request.Form["Description"] ?? httpContext.Request.Form[nameof(CoderrViewModel.UserErrorDescription)];
+            var email = httpContext.Request.Form["Email"] ?? httpContext.Request.Form[nameof(CoderrViewModel.UserEmailAddress)];
             if (!string.IsNullOrEmpty(email) || !string.IsNullOrEmpty(description))
             {
-                Err.Configuration.Uploaders.Upload(new FeedbackDTO
-                {
-                    Description = description,
-                    EmailAddress = email,
-                    ReportId = reportId
-                });
+                Err.LeaveFeedback(reportId, new UserSuppliedInformation(description, email));
             }
         }
     }

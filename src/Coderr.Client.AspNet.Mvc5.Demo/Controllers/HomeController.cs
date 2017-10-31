@@ -27,24 +27,7 @@ namespace codeRR.Client.AspNet.Mvc5.Demo.Controllers
                 Expires = DateTime.UtcNow.AddMinutes(5)
             };
 
-            //throw new UnauthorizedAccessException();
-            try
-            {
-                throw new InvalidOperationException("Tag demo");
-            }
-            catch (Exception ex)
-            {
-                var collection = new ContextCollectionDTO("User");
-                collection.Properties.Add("Id", "53338");
-                collection.Properties.Add("FirstName", "Jonas");
-                collection.Properties.Add("LastName", "Gauffin");
-                collection.Properties.Add("UserName", "jgauffin");
-                var col2 = new ContextCollectionDTO("ViewModel");
-                col2.Properties.Add("Fake", "Make");
-
-                this.ReportException(ex, new [] {collection, col2});
-            }
-            return View();
+            throw new UnauthorizedAccessException("Check the codeRR website to see this exception");
         }
 
         public ActionResult Return()

@@ -89,5 +89,10 @@ namespace codeRR.Client.AspNet.Mvc5
         ///     </para>
         /// </remarks>
         public ViewDataDictionary ViewData { get; set; }
+
+        /// <summary>
+        /// Model in the action method (if specified/loaded)
+        /// </summary>
+        public object Model { get; set; }
     }
 }

@@ -3,23 +3,19 @@
 
 Welcome to codeRR! 
 
-We try to answer questions as fast as we can at our forum: http://discuss.coderrapp.com. 
-If you have any trouble at all, don't hesitate to post a message there.
+This library is the client library of codeRR. CodeRR detects and reports different types of errors both in the ASP pipeline and in the MVC pipeline.
 
-This library is the client library of codeRR. What it does is to pick different kinds of
-errors both in the ASP pipeline and in MVC pipeline.
+However, the library doesn’t process the generated information. Information processing is done by the codeRR server which you will need to install.
 
-However, this library do not process the information but require a codeRR server for that.
-You can either install the open source server from https://github.com/coderrapp/coderr.server, or
-use our hosted service at https://coderrapp.com/live.
+For a server with full functionality, we recommend you to use our hosted service at https://coderrapp.com/live. But you can also use and install the open source server version from https://github.com/coderrapp/coderr.server.
+
+For any questions that you might have, please use our forum at http://discuss.coderrapp.com. At the forum, we will try to answer questions as fast as we can and post answers to questions that have already been asked. Don't hesitate to use it! 
 
 
 Configuration
 =============
 
-To start with, you need to configure the connection to the codeRR server, 
-this code is typically added in your Global.Asax or Startup.cs. This information is found either
-in our hosted service or in your installed codeRR server.
+Start by configuring the connection to the codeRR server. The code below is typically added in your global.asax or Startup.cs. The configuration settings is found either in codeRR Live or in your installed codeRR server.
 
     public class MvcApplication : System.Web.HttpApplication
     {
@@ -45,16 +41,11 @@ in our hosted service or in your installed codeRR server.
 Reporting exceptions
 ====================
 
-All unhandled exceptions are reported directly by this library. However, sometimes you'll want to use try/catch
-for some custom handling (or being able to display pretty error messages).
+All unhandled exceptions are reported directly by the client library. Here you have the option of using try/catch for custom error handling or to display pretty error messages.
 
-If you do so in the controller, use "this.ReportException(ex)" to get all the goodies from codeRR attached to the
-exception.
+When using the controller, use "this.ReportException(ex)" to get all the bells and whistles from codeRR attached to the exception. If you do not have access to the controller, you can use "httpContext.ReportException(ex)". "Err.Report(ex)" can be used as last resort as it do not include context information.
 
-You can also use "httpContext.ReportException(ex)" if you do not have access to the controller. Last resort
-is to use "Err.Report(ex)" as no context information is included then.
-
-When doing so, simply report the exception like this:
+Sample code of how you can report an exception:
 
     public ActionResult Post(PostViewModel model)
     {
@@ -72,5 +63,5 @@ When doing so, simply report the exception like this:
         return View();
     }
 
-Questions? http://discuss.coderrapp.com
-Documentation: https://coderrapp.com/documentation/client/libraries/aspnet/mvc5/
+Again for questions, go to http://discuss.coderrapp.com
+Additional documentation can be found at https://coderrapp.com/documentation/client/libraries/aspnet-mvc5/

@@ -38,6 +38,7 @@ namespace codeRR.Client
             configurator.ContextProviders.Add(new RouteDataProvider());
             configurator.ContextProviders.Add(new TempDataProvider());
             configurator.ContextProviders.Add(new ModelStateProvider());
+            configurator.ContextProviders.Add(new ModelProvider());
 
 
             GlobalFilters.Filters.Add(new CoderrFilter());

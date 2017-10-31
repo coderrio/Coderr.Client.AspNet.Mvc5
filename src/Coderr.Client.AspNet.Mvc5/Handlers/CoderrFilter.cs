@@ -25,8 +25,11 @@ namespace codeRR.Client.AspNet.Mvc5.Handlers
 
             Invoke(this, filterContext.Controller.ControllerContext, filterContext.Exception, items);
 
-            filterContext.ExceptionHandled = true;
-            filterContext.Result = null;
+            if (ErrorHttpModule.DisplayErrorPage)
+            {
+                filterContext.ExceptionHandled = true;
+                filterContext.Result = null;
+            }
         }
 
         internal static ErrorReportDTO Invoke(object source, ControllerContext filterContext, Exception exception,
@@ -43,6 +46,9 @@ namespace codeRR.Client.AspNet.Mvc5.Handlers
                 new ContextCollectionDTO("Controller",
                     new Dictionary<string, string> {{"FullName", filterContext.Controller.GetType().FullName}})
             };
+
+            if (filterContext.Controller == null && source is ControllerBase)
+                filterContext.Controller = (ControllerBase) source;
 
             if (filterContext.Controller != null)
             {
@@ -61,7 +67,10 @@ namespace codeRR.Client.AspNet.Mvc5.Handlers
                     if (filterContext.Controller.ViewData.ModelState != null)
                         context.ModelState = filterContext.Controller.ViewData.ModelState;
                 }
+
+                context.Model = filterContext.Controller?.ViewData?.Model;
             }
+            
 
             if (filterContext.ParentActionViewContext != null)
                 items.Add(converter.Convert("ParentActionViewContext", filterContext.ParentActionViewContext));
