@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Web;
 using System.Web.Mvc;
 
-namespace codeRR.Client.AspNet.Mvc5.Tests.ContextProviders.Stubs
+namespace Coderr.Client.AspNet.Mvc5.Tests.ContextProviders.Stubs
 {
     public class MySession : HttpSessionStateBase
     {

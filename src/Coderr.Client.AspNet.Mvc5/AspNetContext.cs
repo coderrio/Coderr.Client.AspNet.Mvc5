@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Web;
-using codeRR.Client.Contracts;
-using codeRR.Client.Reporters;
+using Coderr.Client.Contracts;
+using Coderr.Client.Reporters;
 
-namespace codeRR.Client.AspNet.Mvc5
+namespace Coderr.Client.AspNet.Mvc5
 {
     /// <summary>
     ///     Reporter context with information about ASP.NET.

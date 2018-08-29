@@ -1,7 +1,7 @@
 using System.Collections.Specialized;
 using System.Web;
 
-namespace codeRR.Client.AspNet.Mvc5.Tests.ContextProviders.Stubs
+namespace Coderr.Client.AspNet.Mvc5.Tests.ContextProviders.Stubs
 {
     public class TestApplicationState : HttpApplicationStateBase
     {

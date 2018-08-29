@@ -2,12 +2,12 @@
 using System.Web;
 using FluentAssertions;
 using NSubstitute;
-using codeRR.Client.AspNet.Mvc5.ContextProviders;
-using codeRR.Client.AspNet.Mvc5.Tests.ContextProviders.Stubs;
-using codeRR.Client.Reporters;
+using Coderr.Client.AspNet.Mvc5.ContextProviders;
+using Coderr.Client.AspNet.Mvc5.Tests.ContextProviders.Stubs;
+using Coderr.Client.Reporters;
 using Xunit;
 
-namespace codeRR.Client.AspNet.Mvc5.Tests.ContextProviders
+namespace Coderr.Client.AspNet.Mvc5.Tests.ContextProviders
 {
     public class HttpApplicationItemsProviderTests
     {

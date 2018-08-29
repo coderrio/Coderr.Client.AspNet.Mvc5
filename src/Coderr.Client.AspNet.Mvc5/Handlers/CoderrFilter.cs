@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Web.Mvc;
-using codeRR.Client.Contracts;
-using codeRR.Client.Converters;
+using Coderr.Client.Contracts;
+using Coderr.Client.Converters;
 
-namespace codeRR.Client.AspNet.Mvc5.Handlers
+namespace Coderr.Client.AspNet.Mvc5.Handlers
 {
     /// <summary>
     ///     Used to be able to catch MVC specific data when an error occur.

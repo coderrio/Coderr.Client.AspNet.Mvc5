@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace codeRR.Client.AspNet.Mvc5
+namespace Coderr.Client.AspNet.Mvc5
 {
     /// <summary>
     ///     View model for all error pages used by this plugin.

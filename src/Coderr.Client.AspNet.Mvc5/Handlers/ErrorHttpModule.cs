@@ -3,17 +3,17 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Web;
-using codeRR.Client.AspNet.Mvc5.Handlers;
-using codeRR.Client.AspNet.Mvc5.Implementation;
+using Coderr.Client.AspNet.Mvc5.Handlers;
+using Coderr.Client.AspNet.Mvc5.Implementation;
 using Microsoft.Web.Infrastructure.DynamicModuleHelper;
-using codeRR.Client;
-using codeRR.Client.ContextCollections;
-using codeRR.Client.Contracts;
-using codeRR.Client.Uploaders;
+using Coderr.Client;
+using Coderr.Client.ContextCollections;
+using Coderr.Client.Contracts;
+using Coderr.Client.Uploaders;
 
 [assembly: PreApplicationStartMethod(typeof(ErrorHttpModule), "AddModuleToAspNet")]
 
-namespace codeRR.Client.AspNet.Mvc5.Handlers
+namespace Coderr.Client.AspNet.Mvc5.Handlers
 {
     /// <summary>
     ///     Module that will catch unhandled exceptions

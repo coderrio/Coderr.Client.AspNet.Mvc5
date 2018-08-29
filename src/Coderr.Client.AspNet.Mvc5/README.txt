@@ -1,21 +1,20 @@
 ﻿ASP.NET MVC v5.0 integration package
 ====================================
 
-Welcome to codeRR! 
+This library is the client library of Coderr. 
+It detects and reports different types of errors both in the ASP pipeline and in the MVC pipeline.
 
-This library is the client library of codeRR. CodeRR detects and reports different types of errors both in the ASP pipeline and in the MVC pipeline.
+You will also need to install a Coderr Server to be able to analyze and manage the errors.
 
-However, the library doesn’t process the generated information. Information processing is done by the codeRR server which you will need to install.
-
-For a server with full functionality, we recommend you to use our hosted service at https://coderrapp.com/live. But you can also use and install the open source server version from https://github.com/coderrapp/coderr.server.
-
-For any questions that you might have, please use our forum at http://discuss.coderrapp.com. At the forum, we will try to answer questions as fast as we can and post answers to questions that have already been asked. Don't hesitate to use it! 
+https://coderr.io/documentation/getting-started/
 
 
 Configuration
 =============
 
-Start by configuring the connection to the codeRR server. The code below is typically added in your global.asax or Startup.cs. The configuration settings is found either in codeRR Live or in your installed codeRR server.
+Start by configuring the connection to the Coderr server. 
+The code below is typically added in your global.asax or Startup.cs. 
+The configuration settings is found either in your chosen Coderr Server.
 
     public class MvcApplication : System.Web.HttpApplication
     {
@@ -23,7 +22,7 @@ Start by configuring the connection to the codeRR server. The code below is typi
         {
 
             // codeRR configuration
-            var uri = new Uri("https://report.coderrapp.com/");
+            var uri = new Uri("https://report.coderr.io/");
             Err.Configuration.Credentials(uri,
                 "yourAppKey",
                 "yourSharedSecret");
@@ -41,9 +40,11 @@ Start by configuring the connection to the codeRR server. The code below is typi
 Reporting exceptions
 ====================
 
-All unhandled exceptions are reported directly by the client library. Here you have the option of using try/catch for custom error handling or to display pretty error messages.
+All unhandled exceptions are reported directly by the client library. 
 
-When using the controller, use "this.ReportException(ex)" to get all the bells and whistles from codeRR attached to the exception. If you do not have access to the controller, you can use "httpContext.ReportException(ex)". "Err.Report(ex)" can be used as last resort as it do not include context information.
+When using the controller, use "this.ReportException(ex)" to get full functionality from Coderr. 
+If you do not have access to the controller, you can use "httpContext.ReportException(ex)". 
+"Err.Report(ex)" can be used as last resort as it do not include context information from ASP.NET.
 
 Sample code of how you can report an exception:
 
@@ -63,5 +64,9 @@ Sample code of how you can report an exception:
         return View();
     }
 
-Again for questions, go to http://discuss.coderrapp.com
-Additional documentation can be found at https://coderrapp.com/documentation/client/libraries/aspnet-mvc5/
+
+ASP.NET MVC5 documentation
+https://coderr.io/documentation/client/libraries/aspnet-mvc5/
+
+Guides and support
+https://coderr.io/guides-and-support/

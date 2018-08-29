@@ -1,7 +1,7 @@
 ﻿using System.Web.Mvc;
-using codeRR.Client.AspNet.Mvc5;
+using Coderr.Client.AspNet.Mvc5;
 
-namespace codeRR.Client.AspNet.Mvc5.Demo.Controllers
+namespace Coderr.Client.AspNet.Mvc5.Demo.Controllers
 {
     public class ErrorController : Controller
     {

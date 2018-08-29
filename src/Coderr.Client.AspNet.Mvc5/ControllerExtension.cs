@@ -1,13 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Web.Mvc;
-using codeRR.Client.AspNet.Mvc5.Handlers;
-using codeRR.Client.Contracts;
-using codeRR.Client.Converters;
+using Coderr.Client.AspNet.Mvc5.Handlers;
+using Coderr.Client.Contracts;
+using Coderr.Client.Converters;
 
 // ReSharper disable CheckNamespace
 
-namespace codeRR.Client
+namespace Coderr.Client
 {
     /// <summary>
     ///     To be able to pickup ASP.NET MVC context collections

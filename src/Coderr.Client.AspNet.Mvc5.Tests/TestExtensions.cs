@@ -1,8 +1,8 @@
 ﻿using System.Linq;
-using codeRR.Client.Contracts;
+using Coderr.Client.Contracts;
 using Xunit.Sdk;
 
-namespace codeRR.Client.AspNet.Mvc5.Tests
+namespace Coderr.Client.AspNet.Mvc5.Tests
 {
     public static class TestExtensions
     {

@@ -1,9 +1,9 @@
 ﻿using System;
 using System.IO;
 using System.Web.Mvc;
-using codeRR.Client.Contracts;
+using Coderr.Client.Contracts;
 
-namespace codeRR.Client.AspNet.Mvc5.Demo.Controllers
+namespace Coderr.Client.AspNet.Mvc5.Demo.Controllers
 {
     public class HomeController : Controller
     {

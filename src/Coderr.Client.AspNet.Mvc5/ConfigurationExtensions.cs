@@ -1,11 +1,11 @@
 ﻿using System.Web.Mvc;
-using codeRR.Client.AspNet.Mvc5.ContextProviders;
-using codeRR.Client.AspNet.Mvc5.Handlers;
-using codeRR.Client.Config;
+using Coderr.Client.AspNet.Mvc5.ContextProviders;
+using Coderr.Client.AspNet.Mvc5.Handlers;
+using Coderr.Client.Config;
 
 // ReSharper disable once CheckNamespace
 
-namespace codeRR.Client
+namespace Coderr.Client
 {
     /// <summary>
     ///     Configuration extensions specific for ASP.NET MVC. Read the <see cref="CoderrConfiguration" /> documentation for

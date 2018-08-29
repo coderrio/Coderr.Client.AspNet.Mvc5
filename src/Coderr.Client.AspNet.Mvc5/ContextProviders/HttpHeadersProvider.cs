@@ -1,9 +1,9 @@
 ﻿using System.Collections.Specialized;
-using codeRR.Client.ContextProviders;
-using codeRR.Client.Contracts;
-using codeRR.Client.Reporters;
+using Coderr.Client.ContextProviders;
+using Coderr.Client.Contracts;
+using Coderr.Client.Reporters;
 
-namespace codeRR.Client.AspNet.Mvc5.ContextProviders
+namespace Coderr.Client.AspNet.Mvc5.ContextProviders
 {
     /// <summary>
     ///     assembles all HTTP headers from the request.

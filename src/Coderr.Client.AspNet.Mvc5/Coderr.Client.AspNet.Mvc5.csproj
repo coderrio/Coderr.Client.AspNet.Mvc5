@@ -1,8 +1,8 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <TargetFramework>net451</TargetFramework>
-    <Version>1.0.6</Version>
-    <PackageReleaseNotes>Updated to latest core package.</PackageReleaseNotes>
+    <Version>1.1.0</Version>
+    <PackageReleaseNotes>Updated the readme.</PackageReleaseNotes>
 
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <RootNamespace>codeRR.Client.AspNet.Mvc5</RootNamespace>
@@ -31,11 +31,11 @@
   </ItemGroup>
  
   <ItemGroup>
-    <PackageReference Include="Microsoft.AspNet.Mvc" Version="5.2.3" />
-    <PackageReference Include="Microsoft.AspNet.Razor" Version="3.2.3" />
-    <PackageReference Include="Microsoft.AspNet.WebPages" Version="3.2.3" />
+    <PackageReference Include="Microsoft.AspNet.Mvc" Version="5.2.6" />
+    <PackageReference Include="Microsoft.AspNet.Razor" Version="3.2.6" />
+    <PackageReference Include="Microsoft.AspNet.WebPages" Version="3.2.6" />
     <PackageReference Include="Microsoft.Web.Infrastructure" Version="1.0.0.0" />
-    <PackageReference Include="Coderr.Client" Version="1.0.17" />
+    <PackageReference Include="Coderr.Client" Version="1.1.0" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CSharp" />

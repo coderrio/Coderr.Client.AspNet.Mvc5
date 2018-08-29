@@ -1,7 +1,7 @@
 ﻿using System.Runtime.CompilerServices;
 using System.Web.Mvc;
 
-namespace codeRR.Client.AspNet.Mvc5.Handlers
+namespace Coderr.Client.AspNet.Mvc5.Handlers
 {
     /// <summary>
     ///     Small fake controller.

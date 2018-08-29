@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Web.Mvc;
 using System.Web.Routing;
-using codeRR.Client.Uploaders;
+using Coderr.Client.Uploaders;
 
-namespace codeRR.Client.AspNet.Mvc5.Demo
+namespace Coderr.Client.AspNet.Mvc5.Demo
 {
     public class MvcApplication : System.Web.HttpApplication
     {
@@ -15,9 +15,9 @@ namespace codeRR.Client.AspNet.Mvc5.Demo
                 "2b42024bcb21499daed400e13b6338f3",
                 "237e6bb0345f45b281a35c5b8a8e5bdb");
 
-
             Err.Configuration.UserInteraction.AskUserForDetails = false;
             Err.Configuration.UserInteraction.AskForEmailAddress = true;
+            Err.Configuration.UserInteraction.AskUserForPermission = true;
             Err.Configuration.CatchMvcExceptions();
             Err.Configuration.DisplayErrorPages();
 

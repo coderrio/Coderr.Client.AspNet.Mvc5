@@ -3,7 +3,7 @@ using System.Net;
 using System.Security;
 using System.Web;
 
-namespace codeRR.Client.AspNet.Mvc5.Handlers
+namespace Coderr.Client.AspNet.Mvc5.Handlers
 {
     /// <summary>
     ///     Tries to Identity the correct HTTP code

@@ -4,7 +4,7 @@ using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
 
-namespace codeRR.Client.AspNet.Mvc5
+namespace Coderr.Client.AspNet.Mvc5
 {
     /// <summary>
     ///     Bring MVC specific sources

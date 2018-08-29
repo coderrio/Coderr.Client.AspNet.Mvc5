@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Web.Mvc;
 
-namespace codeRR.Client.AspNet.Mvc5
+namespace Coderr.Client.AspNet.Mvc5
 {
     /// <summary>
     ///     Validates model when it arrives and adds exceptions as validation failures.

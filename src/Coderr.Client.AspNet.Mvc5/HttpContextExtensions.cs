@@ -2,11 +2,11 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
-using codeRR.Client.AspNet.Mvc5.Handlers;
-using codeRR.Client.Contracts;
-using codeRR.Client.Converters;
+using Coderr.Client.AspNet.Mvc5.Handlers;
+using Coderr.Client.Contracts;
+using Coderr.Client.Converters;
 
-namespace codeRR.Client.AspNet.Mvc5
+namespace Coderr.Client.AspNet.Mvc5
 {
     /// <summary>
     /// Extensions for the HTTP context

@@ -6,9 +6,9 @@ using System.Web;
 using System.Web.Compilation;
 using System.Web.Hosting;
 using System.Web.UI;
-using codeRR.Client;
+using Coderr.Client;
 
-namespace codeRR.Client.AspNet.Mvc5.Implementation
+namespace Coderr.Client.AspNet.Mvc5.Implementation
 {
     /// <summary>
     ///     Renders embedded views.

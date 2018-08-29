@@ -1,8 +1,8 @@
 ﻿using System;
-using codeRR.Client.Contracts;
-using codeRR.Client.Uploaders;
+using Coderr.Client.Contracts;
+using Coderr.Client.Uploaders;
 
-namespace codeRR.Client.AspNet.Mvc5.Demo
+namespace Coderr.Client.AspNet.Mvc5.Demo
 {
     public class CustomSubmitter : IReportUploader
     {

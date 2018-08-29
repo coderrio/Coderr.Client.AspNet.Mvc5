@@ -2,10 +2,10 @@
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
-using codeRR.Client.AspNet.Mvc5.Handlers;
-using codeRR.Client;
+using Coderr.Client.AspNet.Mvc5.Handlers;
+using Coderr.Client;
 
-namespace codeRR.Client.AspNet.Mvc5.Implementation
+namespace Coderr.Client.AspNet.Mvc5.Implementation
 {
     internal class CustomControllerContext
     {
@@ -156,7 +156,7 @@ namespace codeRR.Client.AspNet.Mvc5.Implementation
 <p>The default ASP.NET MVC error view <code>Shared\Error.cshtml</code> uses <code>HandleErrorInfo</code> as a view model while codeRR expects <code>CoderrViewModel</code>.</p>
 <p>You have three options:</p>
 <ol>
-<li>Change view model in it: <code>@model codeRR.Client.AspNet.Mvc5.CoderrViewModel</code></li>
+<li>Change view model in it: <code>@model Coderr.Client.AspNet.Mvc5.CoderrViewModel</code></li>
 <li>Remove the view <code>Shared\Errors.cshtml</code> to get codeRRs built in error pages.</li>
 <li>Disable codeRRs error page handling, remove <code>Err.Configuration.DisplayErrorPages();</code> from global.asax.</li>
 </ol>

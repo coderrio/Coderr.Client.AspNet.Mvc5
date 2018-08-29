@@ -1,7 +1,7 @@
 Integration library for ASP.NET MVC5 applications
 =================================================
 
-[![VSTS](https://1tcompany.visualstudio.com/_apis/public/build/definitions/75570083-b1ef-4e78-88e2-5db4982f756c/15/badge)]() [![NuGet](https://img.shields.io/nuget/dt/codeRR.Client.AspNet.Mvc5.svg?style=flat-square)]()
+[![VSTS](https://1tcompany.visualstudio.com/_apis/public/build/definitions/75570083-b1ef-4e78-88e2-5db4982f756c/15/badge)]() [![NuGet](https://img.shields.io/nuget/dt/Coderr.Client.AspNet.Mvc5.svg?style=flat-square)]()
 
 This library will detect all unhandled exceptions in ASP.NET MVC v5 based applications and report them to your codeRR server (or your account at https://coderrapp.com).
 

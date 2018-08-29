@@ -1,9 +1,9 @@
-﻿using codeRR.Client.ContextProviders;
-using codeRR.Client.Contracts;
-using codeRR.Client.Converters;
-using codeRR.Client.Reporters;
+﻿using Coderr.Client.ContextProviders;
+using Coderr.Client.Contracts;
+using Coderr.Client.Converters;
+using Coderr.Client.Reporters;
 
-namespace codeRR.Client.AspNet.Mvc5.ContextProviders
+namespace Coderr.Client.AspNet.Mvc5.ContextProviders
 {
     /// <summary>
     ///     Name: "ViewBag"

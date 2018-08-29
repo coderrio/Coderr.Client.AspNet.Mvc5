@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Web;
-using codeRR.Client.Processor;
-using codeRR.Client.Reporters;
+using Coderr.Client.Processor;
+using Coderr.Client.Reporters;
 
-namespace codeRR.Client.AspNet.Mvc5.Implementation
+namespace Coderr.Client.AspNet.Mvc5.Implementation
 {
     /// <summary>
     ///     Context used when collecting error information (when an error have been caught).

@@ -1,7 +1,7 @@
 ﻿using System.Runtime.CompilerServices;
-using codeRR.Client;
+using Coderr.Client;
 
-namespace codeRR.Client.AspNet.Mvc5
+namespace Coderr.Client.AspNet.Mvc5
 {
     /// <summary>
     ///     <para>
@@ -27,7 +27,7 @@ namespace codeRR.Client.AspNet.Mvc5
     ///         </item>
     ///     </list>
     ///     <para>
-    ///         For more information <see cref="codeRR.Client" /> for a quick start or <see cref="Err" /> on how to report
+    ///         For more information <see cref="Coderr.Client" /> for a quick start or <see cref="Err" /> on how to report
     ///         exceptions manually.
     ///     </para>
     /// </summary>
